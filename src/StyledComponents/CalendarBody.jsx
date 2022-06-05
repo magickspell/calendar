@@ -64,7 +64,7 @@ export const CalendarBody = () => {
 
         for (let time = 0; time < 24; time++) {
             for (let day = step; day < start; day++) {
-                let firstDayD = currentDate.getDate() - currentDate.getDay() + day + 1
+                let firstDayD = currentDate.getDate() - ((currentDate.getUTCDay()+6)%7) + day
                 let date = (new Date(new Date().setDate(firstDayD))
                     .toLocaleString('en', {month: 'long', day: 'numeric'}))
                 if (time < 10) {

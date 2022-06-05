@@ -112,7 +112,7 @@ let getWeek = (step) => {
     for (let i = step; i < start; i++) {
         // +1 т.к. по дефолту нделя считается с воскресенья
         //console.log(i)
-        let firstDayD = currentDate.getUTCDate() - currentDate.getUTCDay() + i + 1
+        let firstDayD = currentDate.getUTCDate() - ((currentDate.getUTCDay()+6)%7) + i
         let firstDay = new Date(new Date().setDate(firstDayD)).toLocaleString('en', {day: 'numeric'})
         let firstDayWeek = new Date(new Date().setDate(firstDayD)).toLocaleString('en', {weekday: 'long'})
         console.log(firstDay)
